@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nameko Saibai</title>
+    <script type="text/javascript" src="jsAnim.js"></script>
+</head>
+<style>
+body {
+	margin: 0px;
+	padding: 0px;
+	background-size:310px 450px;
+	background-image:url(1-1.jpg);
+	background-repeat:inherit;
+	background-repeat:no-repeat;
+}
+.Canvas {
+	border:3px solid;
+	-webkit-border-radius: 10px;    
+                    -moz-border-radius: 10px;
+					margin-left:58px;
+					margin-top:75px;
+					visibility:visible;
+}
+.size {
+	width:60px;
+	height:30px;
+	font-size:14px;
+}
+</style>
+<style type="text/css">
+div {
+	width:350px;
+	height:40px;
+}
+.blink {
+	font-size:30px;
+	color:#F00;
+}
+.bt {
+	font-size:16px;
+	width:60px;
+	height:30px;
+	color:#00F;
+}
+.buttons {
+	font-size:16px;
+	width:60px;
+	height:30px;
+	visibility: hidden;
+}
+.buttons1 {
+	font-size:16px;
+	width:60px;
+	height:30px;
+	visibility: hidden;
+}
+.bt1{
+	height:100px;
+	width:58px;
+	visibility:visible;
+	}
+
+</style>
+       <style type="text/css">
+        .bar {
+            width:200px;height:15px;background-Color:grey;
+			 -webkit-border-radius: 10px;    
+                    -moz-border-radius: 10px;
+					margin-left:60px;
+			visibility:hidden;
+        }
+
+        .bar1 {
+            width:200px;height:15px;background-Color:green;color:white;text-Align:center;white-Space:nowrap;
+			visibility:hidden;
+			 -webkit-border-radius: 10px;    
+                    -moz-border-radius: 10px;
+        }
+		#canvas1
+		{
+			border: none;
+			visibility:visible;
+			margin-top:30px;
+			margin-left:25px;
+		}
+
+    </style>
+<body>
+<div id="begin">
+<div id="cyuusin">
+  <center>
+    <table id="inpt">
+      <tr>
+        <td>
+        <input class="bt" id="ji" type="image"  src="button10.png" onClick="jii();" >
+          <input  class="bt" id="saibai" type="image"  src="button2.png" onClick="saibai();"/>
+          <input  class="bt" id="zukan" type="image"  src="button3.png" onClick="zukan();"/>
+          <input class="bt" id="kaisetsu" type="image"  src="button4.png" onClick="kaisetsu();"/>
+         </td>
+      </tr>
+    </table>
+  </center>
+ <!--<div id="canvas">
+    <canvas id="myCanvas" width="310" height="450"></canvas>
+  </div>-->
+</div>
+<!--<ul id = "button-list1">
+        <dt>
+          <input class = "buttons" type="button" id = "first" value="壁紙" onClick="onclick1();" />
+          <br />
+        </dt>
+        <input class = "buttons" type="button" id = "second" value="加湿器"   />
+        <br />
+        <dt>
+          <input class = "buttons" type="button" id = "third"  value="保温器"  / >
+          <br />
+        </dt>
+        <input class = "buttons" type="button" id = "fourth" value="照明器"  />
+        <br />
+        <dt>
+          <input class = "buttons" type="button" id = "fifth"  value="消耗品"  />
+        </dt>
+      </ul>-->
+ 
+      <br/>
+          <canvas id="canvas1" width="250" height="80"></canvas>
+              <br/>
+              <div id="111">
+                  <canvas class="Canvas" id= "canvas" width="200" height="15" style=" border:1px solid; visibility:hidden; "></canvas>
+                  </div>
+                   <br/>
+                         <br/>
+                         <div class="bar" >
+    							<div class="bar1" id="bar" ></div>
+						</div>
+                            <br/>
+                              <br/>
+                                <br/>
+                                 <br/>
+                             <br>    
+ <table id="inpt">
+      <tr>
+        <td>
+        <input class="bt1" id="15m" type="image"  src="15m.png" onClick="m_15();"  >
+          <input  class="bt1" id="30m" type="image"  src="30m.png" onClick="m_30();"/>
+          <input  class="bt1" id="1h" type="image"  src="1h.png" onClick="h_1();"/>
+          <input class="bt1" id="4h" type="image"  src="4h.png" onClick="h_4()"/>
+          <input class="bt1" id="8h" type="image"  src="8h.png" onClick="h_8()"/>
+   </td>
+      </tr>
+</table>
+<script type="text/javascript">
+     /*  window.onload = function() {
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        context.font = "30pt Calibri";
+        context.lineWidth = 3;
+        context.strokeStyle = "orange";                                                                                            
+        context.strokeText("Touch to Start", 50, 350);
+		//context.clearText("Touch to Start",50,350);
+        if (true)
+  			setInterval("doBlink()",1000);
+     	 };
+		function doBlink() {
+            var blink = document.all.tags("Canvas");
+            for (var i=0; i<blink.length; i++)
+                blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : "" ;
+        }
+		function button()
+		{
+		}*/
+		</script>
+<script type="text/javascript">
+			function style_hidden()
+			{
+				var buttonStyle = document.getElementsByClassName('buttons');
+				for(var i = 0; i < buttonStyle.length; i++) 
+				buttonStyle[i].style.visibility = 'hidden'; 
+				return false;
+			}
+			function style_visible()
+			{
+				var buttonStyle = document.getElementsByClassName('buttons');
+				for(var i = 0; i < buttonStyle.length; i++)
+				buttonStyle[i].style.visibility ='visible'; 
+				return false;
+			}
+			function style_hidden1()
+			{
+				var buttonStyle = document.getElementsById('ji');
+				buttonStyle[i].style.visibility = 'hidden'; 
+				return false;
+			}
+			function style_visible1()
+			{
+				var buttonStyle = document.getElementsByClassName('buttons1');
+				for(var i = 0; i < buttonStyle.length; i++) 
+				buttonStyle[i].style.visibility ='visible'; 
+				return false;
+			}
+			function jii()
+				{ 
+				var ji = document.getElementById("ji");
+				ji.src="button1.png";
+				style_visible(); 
+				var saibai = document.getElementById("saibai");
+				if(saibai.src ="button5.png")
+				saibai.src = "button2.png";
+				var zukan=document.getElementById("zukan");
+				if(zukan.src ="button6.png")
+				zukan.src = "button3.png";
+				var kaisetsu=document.getElementById("kaisetsu");
+				if(kaisetsu.src ="button7.png")
+				kaisetsu.src = "button4.png";
+				return false;
+			}
+			function saibai()
+			{
+				var saibai=document.getElementById("saibai");
+				saibai.src="button5.png";
+				style_hidden(); 
+				var ji = document.getElementById("ji");
+				if(ji.src ="button1.png")
+				ji.src = "button10.png";
+				var zukan=document.getElementById("zukan");
+				if(zukan.src ="button6.png")
+				zukan.src = "button3.png";
+				var kaisetsu=document.getElementById("kaisetsu");
+				if(kaisetsu.src ="button7.png")
+				kaisetsu.src = "button4.png";
+				return false;
+			}
+			function zukan()
+			{
+				var zukan=document.getElementById("zukan");
+				zukan.src="button6.png";
+				style_hidden();
+				var ji = document.getElementById("ji");
+				if(ji.src ="button1.png")
+				ji.src = "button10.png";
+				var saibai=document.getElementById("saibai");
+				if(saibai.src ="button5.png")
+				saibai.src = "button2.png";
+				var kaisetsu=document.getElementById("kaisetsu");
+				if(kaisetsu.src ="button7.png")
+				kaisetsu.src = "button4.png";
+				return false;
+			}
+			function kaisetsu()
+			{
+				var kaisetsu=document.getElementById("kaisetsu");
+				kaisetsu.src="button7.png";
+				style_hidden();
+				var ji = document.getElementById("ji");
+				if(ji.src ="button1.png")
+				ji.src = "button10.png";
+				var saibai=document.getElementById("saibai");
+				if(saibai.src ="button5.png")
+				saibai.src = "button2.png";
+				var zukan=document.getElementById("zukan");
+				if(zukan.src ="button6.png")
+				zukan.src = "button3.png";
+				return false;
+			}
+		</script>
+        <script type="text/javascript">
+		var flag;
+		var answer
+		function check()
+		{
+				answer = confirm ("Do you want to change?");
+				var m_15=document.getElementById("15m");
+				var m_30=document.getElementById("30m");
+				var h_1=document.getElementById("1h");
+				var h_4=document.getElementById("4h");
+				var h_8=document.getElementById("8h");
+				if (answer)
+				{
+					m_30.src="30m.png";
+					m_15.src="15m.png";
+					h_1.src="1h.png";
+					h_4.src="4h.png";
+					h_8.src="8h.png";							
+				}	
+		}
+			function m_15()
+			{
+				var m_15=document.getElementById("15m");
+				if(flag!=1)check();
+				flag = 1;
+				if(answer) m_15.src="15m1.png";
+					var B1=new Bar({
+     			   ID:'bar'
+   					 });
+   					B1.Start(50);
+					draw();
+					draw_saibai();
+                move();
+				canvas_visible();
+				bar_visible();
+				bar_visible1();
+				return false;
+			}
+			function m_30()
+			{
+				var m_30=document.getElementById("30m");
+				if(flag!=2)check();
+				flag = 2;
+				if(answer)m_30.src="30m1.png";
+				 var B2=new Bar({
+     			   ID:'bar'
+   					 });
+   					 B2.Start(10);
+				draw();
+				canvas_visible();
+				bar_visible();
+				bar_visible1();
+				return false;
+			}
+			function h_1()
+			{
+				var h_1=document.getElementById("1h");
+				if(flag!=3)check();
+				flag = 3;
+				if(answer)h_1.src="1h1.png";
+				return false;
+			}
+			function h_4()
+			{
+				var h_4=document.getElementById("4h");
+				if(flag!=4)check();
+				flag = 4;
+				if(answer)h_4.src="4h1.png";
+				return false;
+			}
+			function h_8()
+			{
+				var h_8=document.getElementById("8h");
+				if(flag!=5)check();
+				flag = 5;
+				if(answer)h_8.src="8h1.png";
+				return false;
+			}
+		</script>
+  
+
+    <script type="text/javascript">
+        function zxcAnimate(mde,obj,srt){
+            this.to=null;
+            this.obj=typeof(obj)=='object'?obj:document.getElementById(obj);
+            this.mde=mde.replace(/\W/g,'');
+            this.data=[srt||0];
+            return this;
+        }
+
+        zxcAnimate.prototype.animate=function(srt,fin,ms,scale,c){
+            clearTimeout(this.to);
+            this.time=ms||this.time||0;
+            this.neg=srt<0||fin<0;
+            this.data=[srt,srt,fin];
+            this.mS=this.time*(!scale?1:Math.abs((fin-srt)/(scale[1]-scale[0])));
+            this.c=typeof(c)=='string'?c.charAt(0).toLowerCase():this.c?this.c:'';
+            this.inc=Math.PI/(2*this.mS);
+            this.srttime=new Date().getTime();
+            this.cng();
+        }
+
+        zxcAnimate.prototype.cng=function(){
+            var oop=this,ms=new Date().getTime()-this.srttime;
+            this.data[0]=(this.c=='s')?(this.data[2]-this.data[1])*Math.sin(this.inc*ms)+this.data[1]:(this.c=='c')?this.data[2]-(this.data[2]-this.data[1])*Math.cos(this.inc*ms):(this.data[2]-this.data[1])/this.mS*ms+this.data[1];
+            this.apply();
+            if (ms<this.mS) this.to=setTimeout(function(){oop.cng()},10);
+            else {
+                this.data[0]=this.data[2];
+                this.apply();
+                if (this.Complete) this.Complete(this);
+            }
+        }
+
+        zxcAnimate.prototype.apply=function(){
+            if (isFinite(this.data[0])){
+                if (this.data[0]<0&&!this.neg) this.data[0]=0;
+                if (this.mde!='opacity') this.obj.style[this.mde]=Math.floor(this.data[0])+'px';
+                else zxcOpacity(this.obj,this.data[0]);
+            }
+        }
+
+        function zxcOpacity(obj,opc){
+            if (opc<0||opc>100) return;
+            obj.style.filter='alpha(opacity='+opc+')';
+            obj.style.opacity=obj.style.MozOpacity=obj.style.WebkitOpacity=obj.style.KhtmlOpacity=opc/100-.001;
+        }
+		function bar_hidden()
+			{
+				var barStyle = document.getElementsByClassName('bar');
+				for(var i = 0; i < barStyle.length; i++) 
+				barStyle.style.visibility = 'hidden'; 
+				return false;
+			}
+			function bar_visible()
+			{
+				var barStyle = document.getElementsByClassName('bar');
+				for(var i = 0; i < barStyle.length; i++) 
+				barStyle[i].style.visibility ='visible'; 
+				return false;
+			}
+			function bar_hidden1()
+			{
+				var barStyle = document.getElementsByClassName('bar1');
+				for(var i = 0; i < barStyle.length; i++) 
+				barStyle.style.visibility = 'hidden'; 
+				return false;
+			}
+			function bar_visible1()
+			{
+				var barStyle = document.getElementsByClassName('bar1');
+				for(var i = 0; i < barStyle.length; i++) 
+				barStyle[i].style.visibility ='visible'; 
+				return false;
+			}
+
+		
+    </script>
+<script type="text/javascript">
+
+    function Bar(o){
+        var obj=document.getElementById(o.ID);
+        this.oop=new zxcAnimate('width',obj,0);
+        this.max=obj.parentNode.offsetWidth;
+        this.to=null;
+    }
+
+    Bar.prototype={
+
+        Start:function(sec){
+            clearTimeout(this.to);
+            this.oop.animate(this.max,0,sec*1000);
+            this.srt=new Date();
+            this.sec=sec;
+            this.Time();
+        },
+
+        Time:function(sec){
+            var oop=this,sec=this.sec-Math.floor((new Date()-this.srt)/1000);
+            //this.oop.obj.innerHTML=sec+' seconds';
+            if (sec>0){
+                this.to=setTimeout(function(){ oop.Time(); },1000);
+            }
+            else {
+            }
+        }
+
+    }
+
+    var B1=new Bar({
+        ID:'bar'
+    });
+    B1.Start(10);
+</script>
+<script type="text/javascript">
+		function canvas_hidden()
+			{
+				var buttonStyle = document.getElementsByClassName('Canvas');
+				for(var i = 0; i < buttonStyle.length; i++) 
+				buttonStyle[i].style.visibility = 'hidden'; 
+				return false;
+			}
+			function canvas_visible()
+			{
+				var buttonStyle = document.getElementsByClassName('Canvas');
+				for(var i = 0; i < buttonStyle.length; i++)
+				buttonStyle[i].style.visibility ='visible'; 
+				return false;
+			}
+		
+</script>
+<script type="text/javascript">
+	 function draw()
+	 {
+ 		var canvas=document.getElementById("canvas");
+		var context=canvas.getContext("2d");
+		var centerX = canvas.width / 2;
+    	var centerY = canvas.height / 2;
+   	 	var radius = 6;
+		context.beginPath();
+        context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = "orange";
+        context.fill();
+        context.lineWidth = 2;
+        context.strokeStyle = "red";
+        context.stroke();
+		
+	 }
+        
+		function doBlink() {
+            var blink = document.all.tags("Canvas");
+            for (var i=0; i<blink.length; i++)
+                blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : "" ;
+				if (true)
+  					setInterval("doBlink()",1000);
+              }
+		function draw_saibai()
+		{
+			var canvas=document.getElementById("canvas1");
+			var context=canvas.getContext("2d");
+			var img = new Image();
+			img.src="namek.png";
+			context.drawImage(img,200,0,42,60);
+		}
+     function move(){
+         var mnh = document.getElementById("canvas1");
+         var manager = new jsAnimManager();
+         manager.registerPosition("canvas1");
+         mnh.setPosition(-700,100);
+         canvas1.addEventListener("mouseover", function(){
+             var anim1 = manager.createAnimObject("canvas1");
+             var anim2 =manager.createAnimObject("canvas1");
+             anim1.add({property: Prop.positionSemicircle(false), to:new Pos(-800,200), duration:2000});
+             anim2.add({property: Prop.dimension, to:new Dim(0,0), duration:2000});
+         });
+
+     }
+     /*
+		*/
+</script>
+</body>
+</html>

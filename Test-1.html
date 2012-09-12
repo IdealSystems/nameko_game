@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	 <style>
+		body {
+			margin: 0px;
+			padding: 0px;
+			background-size:320px 460px;
+			background-image:url(1-1.jpg);
+			background-repeat:inherit;
+			background-repeat:no-repeat;
+			
+		}
+		canvas {
+			border: 5px solid #9C9898;
+				}
+		.size{ 
+		width:60px;
+		height:30px;
+		font-size:14px;
+		}
+    </style>
+    <style type="text/css"> 
+			div
+			{
+			width:300px;
+			height:100px;
+		/*	background-color:white;
+			-moz-box-shadow: 10px 10px 5px #888888; 
+			box-shadow: 10px 10px 5px #888888;*/
+			}
+			.blink
+			{
+				font-size:30px;
+				color:#F00;}
+			</style>
+	<body>
+	<canvas id="myCanvas" width="310" height="450"></canvas>
+   <!-- <div id="begin">
+	<div id="cyuusin">
+	<table width="294" id="inpt">
+    	<td width="200">
+           <input name="Button" type="button" class="size" id="nb1" value="jii" size="4">
+    	  <input id="bt1" class="size" type="button" value="saibai" size="4" >
+          <input id="bt2" class="size" type="button" value="zukan" size="4" >
+          <input id="bt2" class="size" type="button" value="kaisetsu" size="4" >
+          </td>
+    </table>
+	</div>
+    </div>-->
+		<script type="text/javascript">
+       window.onload = function() {
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        context.font = "30pt Calibri";
+        context.lineWidth = 3;
+        // stroke color
+        context.strokeStyle = "blue";
+       	context.strokeText("Touch to Start", 50, 350);
+		context.clearRect(0,0,width,height);
+      };
+		function doBlink() {
+            var blink = document.all.tags("myCanvas");
+            for (var i=0; i<blink.length; i++)
+                blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : "" ;
+        }
+		function startBlink() {
+				if (1)
+		setInterval("doBlink()",1000);
+			}
+		//window.onload=startBlink;
+		</script>
+        <blink class="blink">Touch to Start</blink>
+	</body>
+</html>

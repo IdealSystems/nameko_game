@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+</head>
+<style>
+	#myCanvas
+	{
+		border:3px white;
+	}
+</style>
+<div id="begin">
+<tr>
+<p>加湿器</p>
+<td>
+<input id="nb1" class="size" type="button" value="<" onMouseDown="if(mouse_Dwn_Flg == false){mouse_Dwn_Flg = true; hold_Count_NB2();}" onMouseUp="mouse_Dwn_Flg = false" onMouseOut="mouse_Dwn_Flg = false">
+<span id="nb">01</span><span>/12</span>
+<input id="nb2" class="size" type="button" value=">" onMouseDown="if(mouse_Dwn_Flg == false){mouse_Dwn_Flg = true; hold_Count_NB();}" onMouseUp="mouse_Dwn_Flg = false" onMouseOut="mouse_Dwn_Flg = false">
+</td>
+</tr>
+  <div id="canvas">
+    <canvas id="myCanvas" width="310" height="450"></canvas>
+  </div>
+</div>
+
+        
+<script type="text/javascript">
+var temp;
+temp = MIN_NB.toString();
+	if(temp.length == 1){
+		temp = "0"+temp;
+	}
+	document.getElementById('nb').innerHTML = temp; 
+</script>
+<script type="text/javascript">
+var MAX_NB = 12, MIN_NB = 1;
+var NB = 4, setNB = MIN_NB;
+		
+	function plus_NB(){
+	var temp;
+	setNB++;
+	if(setNB > MAX_NB){
+		setNB = MAX_NB;
+	}
+	temp = setNB.toString();
+	if(temp.length == 1){
+		temp = "0"+temp;
+	}
+	document.getElementById('nb').innerHTML = temp; 
+}
+function minus_NB(){
+	var temp;
+	setNB--;
+	if(setNB < MIN_NB)
+		setNB = MIN_NB;
+	temp = setNB.toString();
+	if(temp.length == 1){
+		temp = "0"+temp;
+	}
+	document.getElementById('nb').innerHTML = temp; 
+}
+function hold_Count_NB2()
+{
+	var t  = setTimeout("hold_Count_NB2()",150);
+	if(mouse_Dwn_Flg){
+			minus_NB();
+	}else {
+		clearInterval(t);
+	}
+}
+
+function hold_Count_NB()
+{
+//	alert("dkmalsdsa");
+	var t  = setTimeout("hold_Count_NB()",150);
+	if(mouse_Dwn_Flg){
+			plus_NB();
+	}else {
+		clearInterval(t);
+	}
+}
+function draw() 
+{
+	var can=document.getElementById("myCanvas");
+	var context=can.getContext("2d");
+	context.begin();
+	context.stroke="solid";
+	context.arc(1,1,50,25,2*PI*MATH);
+	context.stroke();
+	}
+</script>
+<body>
+</body>
+</html>

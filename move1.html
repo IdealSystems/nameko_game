@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>test animation</title>
+    <script type="text/javascript" src="jsAnim.js"></script>
+</head>
+<body>
+<input type="image" id="test1" src="red.png">
+<script type="text/javascript">
+    var test = document.getElementById('test1');
+    var manager = new jsAnimManager(40);
+    manager.registerPosition("test1");
+    test.setPosition(250,75);
+    var anim1 = manager.createAnimObject("test1");
+    var anim2 = manager.createAnimObject("test1");
+    anim1.add({property: Prop.position, to:new Pos(-250,75), duration:2000});
+    anim2.add({property: Prop.dimension, to: new Dim(140,20), duration:2000});
+</script>
+</body>
+</html>

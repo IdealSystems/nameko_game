@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Test</title>
+    <script type="text/javascript" src="jsAnim.js"></script>
+</head>
+<body>
+<input type="image" id='drag' src="namek.png">
+<input type="image" id='dra' src="namek.png">
+<script type="text/javascript">
+    var flag1 = 0, flag2 = 0;
+    var drag1 = document.getElementById('drag');
+    var dra1 = document.getElementById('dra');
+    //var test = document.getElementById("drag");
+    var manager = new jsAnimManager();
+   // var manager1 = new jsAnimManager();
+    manager.registerPosition("dra");
+    manager.registerPosition("drag");
+    drag1.setPosition(250,275);
+    dra.setPosition(450,275);
+    /*
+    drag.addEventListener('mousedown', function(){
+        flag=0;
+    },false);
+    drag.addEventListener('mousemove', function(){
+        flag=1;
+    },false);
+    drag.addEventListener('mouseup', function(){
+        if(flag===0)
+        alert("click");
+        else if(flag===1){
+        */
+    drag.addEventListener('mouseover', function(){
+        var anim1 = manager.createAnimObject("drag");
+        var anim2 = manager.createAnimObject("drag");
+        if(flag1==0){
+            anim1.add({property: Prop.positionSemicircle(false), to:new Pos(-100,450), duration:2000});
+            anim2.add({property: Prop.dimension, to:new Dim(20,100), duration:2000});
+        }
+
+        flag1=1;
+        //anim2.kill();
+        //if(flag==1)
+       // drag1.parentNode.removeChild(drag1);
+    },false);
+/*
+    dra.addEventListener('mousedown', function(){
+        flag=0;
+    },false);
+    dra.addEventListener('mousemove', function(){
+        flag=1;
+    },false);
+    dra.addEventListener('mouseup', function(){
+        if(flag===0)
+            alert("click");
+        else if(flag===1){
+*/
+    dra.addEventListener('mouseover', function(){
+            var ani1 = manager.createAnimObject("dra");
+            var ani2 = manager.createAnimObject("dra");
+        if(flag2==0){
+            ani1.add({property: Prop.positionSemicircle(false), to:new Pos(-100,450), duration:2000});
+            ani2.add({property: Prop.dimension, to:new Dim(20,100), duration:2000});
+        }
+            flag2=1;
+            //anim2.kill();
+
+    },false);
+    //drag1.parentNode.removeChild(drag1);
+
+
+</script>
+</body>
+</html>

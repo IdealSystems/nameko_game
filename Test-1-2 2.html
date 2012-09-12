@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nameko Saibai</title>
+    <script type="text/javascript" src="bar.js"></script>
+    <style type="text/css" src="bar.css"></style>
+</head>
+<style>
+body {
+	margin: 0px;
+	padding: 0px;
+	background-size:310px 450px;
+	background-image:url(1-1.jpg);
+	background-repeat:inherit;
+	background-repeat:no-repeat;
+}
+canvas {
+	border:1px white;
+}
+.size {
+	width:60px;
+	height:30px;
+	font-size:14px;
+}
+</style>
+<style type="text/css">
+div {
+	width:350px;
+	height:40px;
+}
+.blink {
+	font-size:30px;
+	color:#F00;
+}
+.bt {
+	font-size:16px;
+	width:60px;
+	height:30px;
+	color:#00F;
+}
+.buttons {
+	font-size:16px;
+	width:60px;
+	height:30px;
+	visibility: hidden;
+}
+.buttons1 {
+	font-size:16px;
+	width:60px;
+	height:30px;
+	visibility: hidden;
+}
+.bt1{
+	height:100px;
+	width:58px;
+	visibility:visible;
+	}
+</style>
+<body>
+<div id="begin">
+<div id="cyuusin">
+  <center>
+    <table id="inpt">
+      <tr>
+        <td>
+        <input class="bt" id="ji" type="image"  src="button10.png" onClick="jii();" >
+          <input  class="bt" id="saibai" type="image"  src="button2.png" onClick="saibai();"/>
+          <input  class="bt" id="zukan" type="image"  src="button3.png" onClick="zukan();"/>
+          <input class="bt" id="kaisetsu" type="image"  src="button4.png" onClick="kaisetsu();"/>
+         </td>
+      </tr>
+    </table>
+  </center>
+ <!-- <div id="canvas">
+    <canvas id="myCanvas" width="310" height="450"></canvas>
+  </div>-->
+    <div class="bar">
+        <div id="bar"></div>
+    </div>
+</div>
+<!--<ul id = "button-list1">
+        <dt>
+          <input class = "buttons" type="button" id = "first" value="壁紙" onClick="onclick1();" />
+          <br />
+        </dt>
+        <input class = "buttons" type="button" id = "second" value="加湿器"   />
+        <br />
+        <dt>
+          <input class = "buttons" type="button" id = "third"  value="保温器"  / >
+          <br />
+        </dt>
+        <input class = "buttons" type="button" id = "fourth" value="照明器"  />
+        <br />
+        <dt>
+          <input class = "buttons" type="button" id = "fifth"  value="消耗品"  />
+        </dt>
+      </ul>-->
+      <br/>
+        <br/>
+          <br/>
+            <br/>
+              <br/>
+                <br/>
+                  <br/>
+                    <br/>
+                      <br/>
+                        <br/>
+                          <br/>
+                            <br>
+                              <br>
+                                  <br>
+								  <br>
+                                 
+ <table id="inpt">
+      <tr>
+        <td>
+        <input class="bt1" id="15m" type="image"  src="15m.png" onClick="m_15();" style="visibility:visible" >
+          <input  class="bt1" id="30m" type="image"  src="30m.png" onClick="m_30();"/>
+          <input  class="bt1" id="1h" type="image"  src="1h.png" onClick="h_1();"/>
+          <input class="bt1" id="4h" type="image"  src="4h.png" onClick="h_4()"/>
+          <input class="bt1" id="8h" type="image"  src="8h.png" onClick="h_8()"/>
+   </td>
+      </tr>
+</table>
+    
+<script type="text/javascript">
+	window.onload = function() {
+  var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        context.font = "30pt Calibri";
+        context.lineWidth = 3;
+        context.strokeStyle = "orange";                                                                                            
+       // context.strokeText("Touch to Start", 50, 350);
+		//context.clearText("Touch to Start",50,350);
+        if (true)
+  			setInterval("doBlink()",1000);
+     	 };
+		function doBlink() {
+            var blink = document.all.tags("Canvas");
+            for (var i=0; i<blink.length; i++)
+                blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : "" ;
+              }
+</script>
+<script type="text/javascript">
+     /*  window.onload = function() {
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        context.font = "30pt Calibri";
+        context.lineWidth = 3;
+        context.strokeStyle = "orange";                                                                                            
+        context.strokeText("Touch to Start", 50, 350);
+		//context.clearText("Touch to Start",50,350);
+        if (true)
+  			setInterval("doBlink()",1000);
+     	 };
+		function doBlink() {
+            var blink = document.all.tags("Canvas");
+            for (var i=0; i<blink.length; i++)
+                blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : "" ;
+        }
+		function button()
+		{
+			
+		}*/
+		</script>
+<script type="text/javascript">
+			function style_hidden()
+			{
+				var buttonStyle = document.getElementsByClassName('buttons');
+				for(var i = 0; i < buttonStyle.length; i++) 
+				buttonStyle[i].style.visibility = 'hidden'; 
+				return false;
+			}
+			function style_visible()
+			{
+				var buttonStyle = document.getElementsByClassName('buttons');
+				for(var i = 0; i < buttonStyle.length; i++)
+				buttonStyle[i].style.visibility ='visible'; 
+				return false;
+			}
+			function style_hidden1()
+			{
+				var buttonStyle = document.getElementsById('ji');
+				buttonStyle[i].style.visibility = 'hidden'; 
+				return false;
+			}
+			function style_visible1()
+			{
+				var buttonStyle = document.getElementsByClassName('buttons1');
+				for(var i = 0; i < buttonStyle.length; i++) 
+				buttonStyle[i].style.visibility ='visible'; 
+				return false;
+			}
+            function bar_hidden(){
+                var bar = document.getElementById('bar')
+                bar.style.visibility = 'hidden';
+                return false;
+            }
+            function bar_visible(){
+                var bar = document.getElementById('bar')
+                bar.style.visibility = 'visible';
+                return false;
+            }
+			function jii()
+				{ 
+				var ji = document.getElementById("ji");
+				ji.src="button1.png";
+				style_visible(); 
+				var saibai = document.getElementById("saibai");
+				if(saibai.src ="button5.png")
+				saibai.src = "button2.png";
+				var zukan=document.getElementById("zukan");
+				if(zukan.src ="button6.png")
+				zukan.src = "button3.png";
+				var kaisetsu=document.getElementById("kaisetsu");
+				if(kaisetsu.src ="button7.png")
+				kaisetsu.src = "button4.png";
+				return false;
+			}
+			function saibai()
+			{
+				var saibai=document.getElementById("saibai");
+				saibai.src="button5.png";
+				style_hidden(); 
+				var ji = document.getElementById("ji");
+				if(ji.src ="button1.png")
+				ji.src = "button10.png";
+				var zukan=document.getElementById("zukan");
+				if(zukan.src ="button6.png")
+				zukan.src = "button3.png";
+				var kaisetsu=document.getElementById("kaisetsu");
+				if(kaisetsu.src ="button7.png")
+				kaisetsu.src = "button4.png";
+				return false;
+			}
+			function zukan()
+			{
+				var zukan=document.getElementById("zukan");
+				zukan.src="button6.png";
+				style_hidden();
+				var ji = document.getElementById("ji");
+				if(ji.src ="button1.png")
+				ji.src = "button10.png";
+				var saibai=document.getElementById("saibai");
+				if(saibai.src ="button5.png")
+				saibai.src = "button2.png";
+				var kaisetsu=document.getElementById("kaisetsu");
+				if(kaisetsu.src ="button7.png")
+				kaisetsu.src = "button4.png";
+				return false;
+			}
+			function kaisetsu()
+			{
+				var kaisetsu=document.getElementById("kaisetsu");
+				kaisetsu.src="button7.png";
+				style_hidden();
+				var ji = document.getElementById("ji");
+				if(ji.src ="button1.png")
+				ji.src = "button10.png";
+				var saibai=document.getElementById("saibai");
+				if(saibai.src ="button5.png")
+				saibai.src = "button2.png";
+				var zukan=document.getElementById("zukan");
+				if(zukan.src ="button6.png")
+				zukan.src = "button3.png";
+				return false;
+			}
+		</script>
+        <script type="text/javascript">
+		
+		function strcmp ( str1, str2 ) {
+
+			return ( ( str1 == str2 ) ? 0 : ( ( str1 > str2 ) ? 1 : -1 ) );
+		}
+		var flag;
+		var answer
+		function check()
+		{
+				answer = confirm ("Do you want to change?");
+				var m_15=document.getElementById("15m");
+				var m_30=document.getElementById("30m");
+				var h_1=document.getElementById("1h");
+				var h_4=document.getElementById("4h");
+				var h_8=document.getElementById("8h");
+				if (answer)
+				{
+					m_30.src="30m.png";
+					m_15.src="15m.png";
+					h_1.src="1h.png";
+					h_4.src="4h.png";
+					h_8.src="8h.png";							
+				}	
+		}
+			function m_15()
+			{
+				var m_15=document.getElementById("15m");
+				if(flag!=1)check();
+				flag = 1;
+				if(answer) m_15.src="15m1.png";
+                var B1=new Bar({
+                    ID:'bar'
+                });
+
+                B1.Start(10);
+                bar_visible();
+                return false;
+			}
+			function m_30()
+			{
+				var m_30=document.getElementById("30m");
+				if(flag!=2)check();
+				flag = 2;
+				if(answer)m_30.src="30m1.png";
+				return false;
+			}
+			function h_1()
+			{
+				var h_1=document.getElementById("1h");
+				if(flag!=3)check();
+				flag = 3;
+				if(answer)h_1.src="1h1.png";
+				return false;
+			}
+			function h_4()
+			{
+				var h_4=document.getElementById("4h");
+				if(flag!=4)check();
+				flag = 4;
+				if(answer)h_4.src="4h1.png";
+				return false;
+			}
+			function h_8()
+			{
+				var h_8=document.getElementById("8h");
+				if(flag!=5)check();
+				flag = 5;
+				if(answer)h_8.src="8h1.png";
+				return false;
+			}
+		</script>
+</body>
+</html>

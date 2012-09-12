@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+</head>
+<style>
+#mycanvas {
+	border:3px solid;
+}
+</style>
+<canvas id="mycanvas" width="300" height="450"></canvas>
+<script type="text/javascript" >
+	window.onload=function draw()
+	{
+		var canvas=document.getElementById("mycanvas");
+		var context=canvas.getContext("2d");
+		var img = new Image();
+		img.onload = function(){
+			context.drawImage(img, 0, 0,300,450);
+				};
+		img.src="saibai.png";
+	}
+</script>
+<script>
+	  /*window.onload = function()
+	 	 {
+		var img = new Image();
+		img.onload = function(){
+		invertColor(this);
+	 		 };
+		img.src="2012-09-08 09.21.44.png";
+	 		 };
+	  function invertColor(img){
+		var canvas = document.getElementById("mycanvas");
+		var context = canvas.getContext("2d");
+		// draw image at top-left corner
+		context.drawImage(img,0,0,300,450);
+		// draw original image right beside the previous image
+		context.drawImage(img,img.width,0);
+		// get ImageData object from the left image
+		var imageData = context.getImageData(0, 0, img.width, img.height);
+		var data = imageData.data;
+		  for (var i = 0; i < data.length; i += 4) {
+		  data[i] = 255 - data[i]; // red
+		  data[i + 1] = 255 - data[i+1]; // green
+		  data[i + 2] = 255 - data[i+2]; // blue
+		  data[i + 3] = 255; // alpha
+		  }
+		// context.putImageData(imageData,0,0,0,0,img.width/2,img.height/2);
+		  context.putImageData(imageData,0,0,300,450,img.width/2,img.height/2);
+	 	 }*/
+</script>
+<body>
+</body>
+</html>
